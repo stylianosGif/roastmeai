@@ -15,7 +15,7 @@ RoastMeAI is a simple web app that generates funny roast-style responses based o
 
 ## 🖼️ Preview
 
-![RoastMeAI Preview](preview.png)
+![RoastMeAI Preview](https://roastmeai-0vhh.onrender.com/)
 
 ---
 
