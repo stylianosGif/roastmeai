@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RoastMeAI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: radial-gradient(circle at top, #222, #000);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 520px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0,0,0,0.6);
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 80%;
+            padding: 14px;
+            border-radius: 12px;
+            border: none;
+            outline: none;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 12px;
+            padding: 12px 22px;
+            border: none;
+            border-radius: 12px;
+            background: #00ffcc;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        .result {
+            margin-top: 25px;
+            font-size: 18px;
+            color: #ffd54a;
+            min-height: 40px;
+        }
+
+        .loading {
+            display: none;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #aaa;
+        }
+
+        .copy-btn {
+            margin-top: 15px;
+            background: #444;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>💀 Roast Generator</h1>
+
+    <form method="POST" onsubmit="showLoading()">
+        <input name="text" placeholder="Type something..." required>
+        <br>
+        <button type="submit">Roast me</button>
+    </form>
+
+    <div class="loading" id="loading">
+        Thinking... 🤔💭
+    </div>
+
+    <div class="result" id="result">
+        {{ result }}
+    </div>
+
+    {% if result %}
+    <button class="copy-btn" onclick="copyText()">Copy 📋</button>
+    {% endif %}
+</div>
+
+<script>
+function showLoading() {
+    document.getElementById("loading").style.display = "block";
+}
+
+function copyText() {
+    navigator.clipboard.writeText(document.getElementById("result").innerText);
+    alert("Copied 💀");
+}
+</script>
+
+</body>
+</html>
